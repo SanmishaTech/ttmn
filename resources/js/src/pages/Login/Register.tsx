@@ -21,10 +21,8 @@ const registerSchema = z.object({
     email: z.string().email('Invalid email address').min(1, 'Email is required'),
     password: z.string().min(1, 'Password is required'),
     mobile: z.string().min(1, 'Mobile is required'),
-    pan: z
-        .string()
-        .min(1, 'Pan is required')
-        .regex(/^[a-zA-Z]{5}([0-9]){4}([a-zA-Z0-9]){1}?$/),
+    time: z.string().min(1, 'Time of Birth is required'),
+    birthcity: z.string().min(1, 'Birth City is required'),
     password_confirmation: z.string().min(1, 'Password confirmation is required'),
     dob: z.any(),
 });
@@ -108,7 +106,8 @@ const RegisterBoaxed = () => {
                     name: data.name,
                     email: data.email,
                     mobile: data.mobile,
-                    pan: data.pan,
+                    time: data.time,
+                    birthcity: data.birthcity,
                     driver: sumDigits(new Date(data.dob).getDate()),
                     conductor: sumDateDigits(data.dob),
                     dob: data.dob,
@@ -160,15 +159,14 @@ const RegisterBoaxed = () => {
                             {errors.mobile && <span className="text-red-600">{errors.mobile.message}</span>}
                         </div>
                         <div>
-                            <label htmlFor="pan">Pan</label>
-                            <Controller
-                                name="pan"
-                                control={control}
-                                render={({ field }) => (
-                                    <input id="pan" placeholder="Enter Pan number" {...field} value={field?.value?.toUpperCase()} className={errors.pan ? 'border-red-500 form-input' : 'form-input'} />
-                                )}
-                            />{' '}
-                            {errors.pan && <span className="text-red-600">{errors.pan.message}</span>}
+                            <label htmlFor="time">Time of Birth</label>
+                            <input id="time" type="time" {...register('time')} className="form-input" placeholder="Enter Time of Birth" />
+                            {errors.time && <span className="text-red-600">{errors.time.message}</span>}
+                        </div>
+                        <div>
+                            <label htmlFor="birthcity">Birth City</label>
+                            <input id="birthcity" type="text" {...register('birthcity')} className="form-input" placeholder="Enter Birth City" />
+                            {errors.birthcity && <span className="text-red-600">{errors.birthcity.message}</span>}
                         </div>
                         <div>
                             <label htmlFor="password">Password</label>
