@@ -1,0 +1,376 @@
+openapi: 3.0.3
+info:
+  title: 'SP Info API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  '/api/payment/{profile_id}':
+    get:
+      summary: 'Show Payment'
+      operationId: showPayment
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Payment Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: profile_id
+        description: 'The ID of the profile.'
+        example: reprehenderit
+        required: true
+        schema:
+          type: string
+  /api/profiles:
+    get:
+      summary: ''
+      operationId: getApiProfiles
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Profile Management'
+      security: []
+  '/api/profiles/{id}':
+    get:
+      summary: 'Show Profile'
+      operationId: showProfile
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Profile Management'
+      security: []
+    put:
+      summary: 'Update Profile'
+      operationId: updateProfile
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Profile Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: quia
+                mobile:
+                  type: string
+                  description: 'The mobile number of the user.'
+                  example: omnis
+                pan:
+                  type: string
+                  description: 'The pan number of the user.'
+                  example: est
+                address_1:
+                  type: string
+                  description: 'The address_1 of the user.'
+                  example: iste
+                address_2:
+                  type: string
+                  description: 'The address_1 of the user.'
+                  example: quasi
+                city:
+                  type: string
+                  description: 'The city of the user.'
+                  example: rerum
+                state:
+                  type: string
+                  description: 'The state of the user.'
+                  example: ut
+                pincode:
+                  type: string
+                  description: 'The pincode of the user.'
+                  example: maiores
+                bank_name:
+                  type: string
+                  description: 'The bank name of the user.'
+                  example: maxime
+                account_name:
+                  type: string
+                  description: 'The account name of the user.'
+                  example: eos
+                account_no:
+                  type: string
+                  description: 'The account number of the user.'
+                  example: dolorem
+                ifsc:
+                  type: string
+                  description: 'The ifsc number of the user.'
+                  example: dolore
+                business_name:
+                  type: string
+                  description: 'The business_name of the user.'
+                  example: labore
+                gstin:
+                  type: string
+                  description: 'The gstin of the user.'
+                  example: aut
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the profile.'
+        example: itaque
+        required: true
+        schema:
+          type: string
+  '/api/profiles/{parent_id}/get_profiles':
+    get:
+      summary: ''
+      operationId: getApiProfilesParent_idGet_profiles
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Profile Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: parent_id
+        description: 'The ID of the parent.'
+        example: aut
+        required: true
+        schema:
+          type: string
+  /api/current_month_count:
+    get:
+      summary: 'Get Current Month Count'
+      operationId: getCurrentMonthCount
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Profile Management'
+      security: []
+  '/api/profiles/{profile_no}/get_ref_profile':
+    get:
+      summary: ''
+      operationId: getApiProfilesProfile_noGet_ref_profile
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: ' Profiles Retrived successfully'
+                  data:
+                    Profiles: []
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: ' Profiles Retrived successfully'
+                  data:
+                    type: object
+                    properties:
+                      Profiles:
+                        type: array
+                        example: []
+      tags:
+        - 'Profile Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: profile_no
+        description: ''
+        example: w
+        required: true
+        schema:
+          type: string
+  /api/register:
+    post:
+      summary: 'Register User'
+      operationId: registerUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: javpqcakoujaiptelpnwfrbvc
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: dgrant@example.com
+                mobile:
+                  type: string
+                  description: 'Must match the regex /^\+(?:\d{1}.'
+                  example: '+(:0'
+                pan:
+                  type: string
+                  description: 'Must match the regex /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z0-9]){1}?$/.'
+                  example: XllJp1818U
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: '9P;pP}'
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: tempore
+                parent_id:
+                  type: string
+                  description: ''
+                  example: velit
+                ref_id:
+                  type: string
+                  description: ''
+                  example: dolor
+              required:
+                - name
+                - email
+                - mobile
+                - pan
+                - password
+                - password_confirmation
+                - parent_id
+                - ref_id
+      security: []
+  /api/login:
+    post:
+      summary: 'Login User'
+      operationId: loginUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: armstrong.estrella@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: 'UZo3bC?g~#['
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Logout User'
+      operationId: logoutUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User Management'
+      security: []
+tags:
+  -
+    name: 'Payment Management'
+    description: ' `'
+  -
+    name: 'Profile Management'
+    description: "\nAPI for Managing Profile data"
+  -
+    name: 'User Management'
+    description: "\nAPI for Managing Users"
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
