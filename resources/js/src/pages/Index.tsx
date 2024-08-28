@@ -97,11 +97,6 @@ const Index = () => {
             console.log(error);
         }
     };
-    useEffect(() => {
-        if (!JSON.parse(localStorage.getItem('user'))) {
-            Navigate('/');
-        }
-    }, [User]);
 
     useEffect(() => {
         const response = async () => {

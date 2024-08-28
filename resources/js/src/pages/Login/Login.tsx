@@ -133,6 +133,14 @@ const LoginBoxed = () => {
                         <button type="submit" className="btn btn-primary w-full">
                             SIGN IN
                         </button>
+                        <div>
+                            <p className="text-center mt-8">
+                                Don't have an account?
+                                <Link to="/register" className="font-bold text-primary hover:underline ltr:ml-1 rtl:mr-1">
+                                    Sign Up
+                                </Link>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>

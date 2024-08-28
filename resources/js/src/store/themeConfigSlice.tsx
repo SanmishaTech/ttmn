@@ -137,7 +137,7 @@ const themeConfigSlice = createSlice({
         },
 
         setPageTitle(state, { payload }) {
-            document.title = `${payload} | Sp Info`;
+            document.title = `${payload} | Neumorology`;
         },
         toggleProfileEdit(state) {
             state.ProfileEditIsTrue = !state.ProfileEditIsTrue;
